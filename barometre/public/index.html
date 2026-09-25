@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baromètre social</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <section id="intro" class="card">
+      <h1>Baromètre social et qualité de vie au travail</h1>
+      <p id="campaign-name" class="muted"></p>
+      <p>Ce questionnaire comporte <strong>40 questions</strong> réparties en 8 thèmes. Il prend environ 10 minutes.</p>
+      <p><strong>Vos réponses sont strictement anonymes</strong> : aucune donnée d'identification n'est collectée,
+        et les résultats d'un groupe ne sont affichés qu'à partir de 5 répondants.</p>
+      <p class="muted">Pour chaque affirmation, indiquez dans quelle mesure vous êtes d'accord.
+        Vous pouvez choisir « Ne se prononce pas » si la question ne vous concerne pas.</p>
+      <p id="closed" class="error hidden">Aucune campagne n'est ouverte actuellement. Merci de revenir plus tard.</p>
+      <p id="already" class="muted hidden">Vous avez déjà répondu depuis ce navigateur. Merci pour votre participation !</p>
+      <div class="actions"><span></span><button id="start" disabled>Commencer</button></div>
+    </section>
+
+    <section id="survey" class="hidden">
+      <div class="card">
+        <div class="muted" id="step-label"></div>
+        <div class="progress"><div id="progress"></div></div>
+        <div class="muted" id="answered-label"></div>
+      </div>
+      <form id="form" class="card" novalidate>
+        <h2 id="page-title"></h2>
+        <div id="page-body"></div>
+        <p id="form-error" class="error hidden"></p>
+        <div class="actions">
+          <button type="button" class="secondary" id="prev">Précédent</button>
+          <button type="button" id="next">Suivant</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="thanks" class="card hidden">
+      <h1>Merci !</h1>
+      <p>Vos réponses ont bien été enregistrées. Les résultats seront partagés à l'issue de la campagne.</p>
+    </section>
+  </main>
+  <script src="/survey.js"></script>
+</body>
+</html>
