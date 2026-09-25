@@ -1,0 +1,16 @@
+{
+  "name": "barometre-social-qvt",
+  "version": "1.0.0",
+  "description": "Baromètre social / QVT : questionnaire de 40 questions, collecte anonyme et tableau de bord",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "start": "node --no-warnings server.js",
+    "test": "node --no-warnings --test",
+    "seed": "node --no-warnings scripts/seed.js"
+  },
+  "license": "MIT"
+}

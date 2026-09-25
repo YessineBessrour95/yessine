@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tableau de bord</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container wide">
+    <section id="login" class="card" style="max-width:420px;margin:60px auto">
+      <h1>Tableau de bord</h1>
+      <p class="muted">Accès réservé aux administrateurs du baromètre.</p>
+      <form id="login-form">
+        <label for="token">Jeton d'accès</label>
+        <input id="token" type="password" autocomplete="current-password" required>
+        <p id="login-error" class="error hidden"></p>
+        <div class="actions"><span></span><button>Se connecter</button></div>
+      </form>
+    </section>
+
+    <section id="app" class="hidden">
+      <div class="topbar">
+        <h1>Baromètre social : résultats</h1>
+        <div class="row" style="flex:0 1 auto">
+          <button class="secondary" id="export">Exporter en CSV</button>
+          <button class="secondary" id="logout">Déconnexion</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="row">
+          <div>
+            <label for="campaign">Campagne</label>
+            <select id="campaign"></select>
+          </div>
+          <div id="filters" class="row" style="flex:3 1 540px"></div>
+        </div>
+      </div>
+
+      <p id="hidden-msg" class="card hidden"></p>
+
+      <div id="results">
+        <div class="kpis" id="kpis"></div>
+        <div class="grid2">
+          <div class="card">
+            <h2>Scores par dimension</h2>
+            <div id="radar"></div>
+          </div>
+          <div class="card">
+            <h2>Détail des dimensions <span class="muted" style="font-weight:400;font-size:.85rem">(score sur 100)</span></h2>
+            <div id="dimbars"></div>
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="card"><h2>Points forts</h2><ul class="plain" id="strengths"></ul></div>
+          <div class="card"><h2>Points de vigilance</h2><ul class="plain" id="weaknesses"></ul></div>
+        </div>
+        <div class="card">
+          <h2>Résultats par question</h2>
+          <div class="legend">
+            <span><i style="background:var(--s1)"></i>Très défavorable</span>
+            <span><i style="background:var(--s2)"></i>Défavorable</span>
+            <span><i style="background:var(--s3)"></i>Neutre</span>
+            <span><i style="background:var(--s4)"></i>Favorable</span>
+            <span><i style="background:var(--s5)"></i>Très favorable</span>
+            <span>(*) question inversée : les réponses sont réorientées pour que « favorable » soit toujours positif</span>
+          </div>
+          <div class="table-wrap"><table id="qtable"></table></div>
+        </div>
+        <div class="card">
+          <h2>Indice global par groupe</h2>
+          <div class="grid2" id="breakdown"></div>
+        </div>
+        <div class="card">
+          <h2>Commentaires libres <span class="muted" id="comments-count" style="font-weight:400"></span></h2>
+          <ul class="plain comments" id="comments"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Gestion des campagnes</h2>
+        <div class="table-wrap"><table id="campaigns"></table></div>
+        <h3 style="margin-top:20px">Lancer une nouvelle campagne</h3>
+        <form id="new-campaign" class="row">
+          <div><label for="nc-name">Nom</label><input id="nc-name" required placeholder="ex. Baromètre 2027"></div>
+          <div><label for="nc-headcount">Effectif ciblé (facultatif)</label><input id="nc-headcount" type="number" min="1"></div>
+          <div style="flex:0 0 auto"><button>Créer et ouvrir</button></div>
+        </form>
+        <p class="muted">Créer une campagne l'ouvre immédiatement et ferme la campagne en cours. Une seule campagne est ouverte à la fois.</p>
+        <p id="campaign-error" class="error hidden"></p>
+      </div>
+    </section>
+  </main>
+  <script src="/admin.js"></script>
+</body>
+</html>
