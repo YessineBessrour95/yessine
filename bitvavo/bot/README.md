@@ -48,3 +48,12 @@ python3 backtest_portefeuille.py # backtest du mode scanner
 - Décisions uniquement sur bougies clôturées ; aucune fonction de retrait dans le code.
 
 ⚠️ Les performances passées ne garantissent rien. Lance-le d'abord plusieurs semaines en simulation.
+
+## Rapport automatique chaque matin (Windows)
+1. Double-clique sur **`installer_tache.bat`** : crée la tâche « Bot Bitvavo » tous les jours à 8h00.
+2. Chaque matin, le rapport s'ouvre dans le Bloc-notes et il est gardé dans `rapports/rapport_AAAA-MM-JJ.txt`.
+3. Pour tester tout de suite : double-clique sur **`lancer_bot.bat`**.
+4. Pour arrêter : double-clique sur **`desinstaller_tache.bat`**.
+
+Si le PC est éteint à 8h, la tâche se lance dès qu'il est rallumé. Le PC doit avoir une session ouverte.
+Ne déplace pas le dossier après l'installation (sinon relance `installer_tache.bat`).

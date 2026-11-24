@@ -2,3 +2,4 @@
 etat_*.json
 trades_*.csv
 __pycache__/
+rapports/
