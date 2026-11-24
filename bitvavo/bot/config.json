@@ -1,0 +1,11 @@
+{
+  "marches": {
+    "BTC-EUR": {"budget_eur": 150},
+    "SOL-EUR": {"budget_eur": 100},
+    "QNT-EUR": {"budget_eur": 50}
+  },
+  "max_ordre_eur": 150,
+  "perte_max_pct": 25,
+  "reprendre_positions_existantes": false,
+  "capital_papier_eur": 375
+}

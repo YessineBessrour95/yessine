@@ -1,0 +1,4 @@
+.env
+etat_*.json
+trades_*.csv
+__pycache__/
