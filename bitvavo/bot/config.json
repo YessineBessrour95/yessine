@@ -1,8 +1,34 @@
 {
   "marches": {
-    "BTC-EUR": {"budget_eur": 150},
-    "SOL-EUR": {"budget_eur": 100},
-    "QNT-EUR": {"budget_eur": 50}
+    "BTC-EUR": {
+      "budget_eur": 150
+    },
+    "SOL-EUR": {
+      "budget_eur": 100
+    },
+    "QNT-EUR": {
+      "budget_eur": 50
+    }
+  },
+  "filtre_btc": true,
+  "scanner": {
+    "actif": false,
+    "max_positions": 4,
+    "budget_total_eur": 300,
+    "marches": [
+      "BTC-EUR",
+      "ETH-EUR",
+      "SOL-EUR",
+      "XRP-EUR",
+      "ADA-EUR",
+      "LINK-EUR",
+      "DOGE-EUR",
+      "AVAX-EUR",
+      "DOT-EUR",
+      "LTC-EUR",
+      "QNT-EUR",
+      "NEAR-EUR"
+    ]
   },
   "max_ordre_eur": 150,
   "perte_max_pct": 25,

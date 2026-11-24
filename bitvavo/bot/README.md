@@ -9,6 +9,8 @@ Stratégie de **suivi de tendance sur bougies journalières** :
 |---|---|
 | `bot.py` | Le bot (simulation par défaut, `--live` pour le réel) |
 | `strategie.py` | Règles d'achat / vente et paramètres |
+| `scanner.py` | Sélection des cryptos et score de force |
+| `backtest_portefeuille.py` | Backtest du mode scanner |
 | `backtest.py` | Test de la stratégie sur l'historique Bitvavo, frais inclus |
 | `bitvavo_client.py` | Connexion à l'API Bitvavo |
 | `config.json` | Budget par crypto, limites de sécurité |
@@ -19,7 +21,18 @@ pip install pandas numpy
 python3 backtest.py              # voir les résultats historiques
 python3 bot.py                   # une passe en SIMULATION
 python3 bot.py --boucle          # simulation en continu (vérifie toutes les heures)
+python3 bot.py --scan            # analyse les 30 cryptos les plus échangées (aucun ordre)
+python3 backtest_portefeuille.py # backtest du mode scanner
 ```
+
+## Filtre BTC et mode scanner (config.json)
+- `filtre_btc: true` : le bot n'achète rien tant que le bitcoin clôture sous sa moyenne EMA100.
+  En backtest, ce filtre améliore les résultats sur 1, 2 et 3 ans.
+- `scanner.actif: true` : au lieu des marchés fixes de `marches`, le bot surveille la liste `scanner.marches`
+  (12 grandes cryptos), achète celles qui ont un signal en commençant par les plus fortes sur 30 jours,
+  avec au plus `max_positions` positions de `budget_total_eur / max_positions` chacune.
+- Backtest : trader automatiquement les 30 cryptos les plus échangées (petites cryptos incluses)
+  **fait perdre de l'argent** (-18 % à -63 %). Le scanner est donc limité aux grandes cryptos.
 
 ## Passer en réel
 1. Sur Bitvavo : Paramètres → API → créer une clé avec **Consulter + Trader**, **jamais Retirer**.
